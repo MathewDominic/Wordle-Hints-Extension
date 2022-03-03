@@ -41,8 +41,7 @@ function getTileToReveal(lastGuessIndex, state) {
     removeRevealedTiles(hiddenTiles);
     console.log("Tiles left to be revealed", hiddenTiles);
     // randomly choose any tile out of the remaining tiles to be revealed
-    const tileIndex = hiddenTiles[Math.floor(Math.random() * hiddenTiles.length)];
-    return tileIndex;
+    return hiddenTiles[Math.floor(Math.random() * hiddenTiles.length)];
 }
 
 function main() {
@@ -57,7 +56,7 @@ function main() {
                 .shadowRoot.querySelector("div")
         tile.innerText = state.solution[tileToReveal]
         tile.setAttribute("data-state", "correct")
-        setRevealedTile(tileIndex)
+        setRevealedTile(tileToReveal);
     } else {
         console.log("All tiles already revealed");
     }
