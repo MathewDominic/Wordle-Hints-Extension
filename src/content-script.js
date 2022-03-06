@@ -13,8 +13,10 @@ function setRevealedTile(tileIndex) {
 }
 
 function removeRevealedTiles(hiddenTiles) {
-    if(window.tilesRevealed) {
-        window.tilesRevealed.forEach(x => hiddenTiles.splice(hiddenTiles.indexOf(x), 1));
+    for (let i of window.tilesRevealed) {
+        if (hiddenTiles.indexOf(i) > -1) {
+            hiddenTiles.splice(hiddenTiles.indexOf(i), 1);
+        }
     }
 }
 
@@ -24,9 +26,8 @@ function removeCorrectlyGuessedTiles(evaluations, hiddenTiles) {
             break;
         for (let j = 0; j < evaluations[i].length; j++) {
             if (evaluations[i][j] == "correct") {
-                const index = hiddenTiles.indexOf(j);
-                if (index > -1) {
-                    hiddenTiles.splice(index, 1);
+                if (hiddenTiles.indexOf(j) > -1) {
+                    hiddenTiles.splice(hiddenTiles.indexOf(j), 1);
                 }
             }
         }
