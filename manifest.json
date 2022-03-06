@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Wordle Hints",
-    "description": "Stuck on today's Wordle? Reveal a hidden letter in just a click",
-    "version": "1.0",
+    "description": "Stuck on today's Wordle? Reveal a hidden letter in just one click",
+    "version": "1.2",
     "action": {
         "default_icon": { 
             "16": "icons/icon16.png",
