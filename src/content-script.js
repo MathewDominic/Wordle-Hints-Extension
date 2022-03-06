@@ -6,13 +6,15 @@ chrome.runtime.onMessage.addListener(
   );
 
 function setRevealedTile(tileIndex) {
-    if(!window.tilesRevealed) {
+    if (!window.tilesRevealed) {
         window.tilesRevealed = []
     }
     window.tilesRevealed.push(tileIndex)
 }
 
 function removeRevealedTiles(hiddenTiles) {
+    if (!window.tilesRevealed)
+        return;
     for (let i of window.tilesRevealed) {
         if (hiddenTiles.indexOf(i) > -1) {
             hiddenTiles.splice(hiddenTiles.indexOf(i), 1);
